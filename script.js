@@ -202,7 +202,7 @@ $("chatForm").addEventListener("submit", async (e) => {
   try {
     const system = chatPrompt($("chatLevel").value, $("topic").value);
     const userMsg = { role: "user", parts: [{ text }] };
-    const data = await callAI(system, [...history, userMsg], 15000); // hội thoại: 15 giây
+    const data = await callAI(system, [...history, userMsg], 10000); // hội thoại: <10 giây
     if (typeof data.reply !== "string" || !data.correction) {
       throw new Error("AI trả về dữ liệu sai định dạng. Hãy thử lại.");
     }
